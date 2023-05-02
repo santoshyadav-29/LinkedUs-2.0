@@ -1,15 +1,33 @@
 import React from "react";
-import Navigation_Bar from "../Components/Navigation_Bar";
 import "../CSS files/JobPosting.css";
 import AdminNavbar from "../Components/AdminNavbar";
+import axios from "axios";
 
 export default function JobPosting() {
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [salary, setSalary] = React.useState("");
-  const [date, setDate] = React.useState(
-    new Date().toISOString().substr(0, 10)
-  );
+  const [date, setDate] = React.useState(new Date().toISOString().slice(0, 10));
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      title: title,
+      description: description,
+      salary: salary,
+      date: date,
+    };
+    axios
+      .post("http://localhost:5000/api/jobs", data)
+      .then((res) => {
+        console.log(res);
+        alert("Job Posted Successfully");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Job Posting Failed");
+      });
+  };
 
   return (
     <div>
@@ -57,7 +75,9 @@ export default function JobPosting() {
             onChange={(e) => setDate(e.target.value)}
           />
 
-          <button type="submit">Post</button>
+          <button type="submit" onClick={handleSubmit}>
+            Post
+          </button>
         </form>
       </div>
     </div>
