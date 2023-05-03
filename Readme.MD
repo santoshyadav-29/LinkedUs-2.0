@@ -37,7 +37,7 @@ npm start
 ```
 
 ## Contributors
--[Santosh Yadav]
+-[Santosh Yadav] /n
 -[Krishita Pandey]
 -[Anuja Kafle]
 -[Aayush Pokhrel]
