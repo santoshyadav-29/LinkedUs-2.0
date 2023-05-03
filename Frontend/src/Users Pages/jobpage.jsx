@@ -28,6 +28,7 @@ export default function Jobpage() {
         style={{
           
           width: "50%",
+          margin: "auto",
           
         }}
       >
