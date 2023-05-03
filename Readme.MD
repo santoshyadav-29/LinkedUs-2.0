@@ -36,11 +36,25 @@ cd client
 npm start
 ```
 
-## Contributors
--[Santosh Yadav] /n
--[Krishita Pandey]
--[Anuja Kafle]
--[Aayush Pokhrel]
--[Sunidhi Sharma]
--[Shashinoor Ghimire]
+## Usage
+1. Register as a User
+2. Login as a User
+3. Create a Profile
+4. Post a Job
+5. Search for a Job
+6. Apply for a Job
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+1.Fork the Project
+2.Create your Feature Branch (git checkout -b feature/AmazingFeature)
+3.Commit your Changes (git commit -m 'Add some AmazingFeature')
+4.Push to the Branch (git push origin feature/AmazingFeature)
+5.Open a Pull Request
+
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
 
