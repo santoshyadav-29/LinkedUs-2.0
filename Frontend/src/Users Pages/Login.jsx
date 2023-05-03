@@ -2,16 +2,21 @@ import React from "react";
 import { useState } from "react";
 import Navigation_Bar from "../Components/Navigation_Bar";
 import AnimatedPage from "../Animation";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../CSS files/Login.css";
-
 
 // Stores the user data
 export default function Login() {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  
+  const navigate = useNavigate();
 
+  // Handles the submit event
+  const handleSumbit = (e) => {
+    e.preventDefault();
+    // Make a POST request to the server
+    navigate("/Homepage");
+  };
 
   return (
     <AnimatedPage>
@@ -25,7 +30,7 @@ export default function Login() {
             </div>
             <div className="left-section">
               <h1>Sign In</h1>
-              <form>
+              <form onSubmit={handleSumbit}>
                 <input
                   type="email"
                   name="email"
@@ -47,9 +52,7 @@ export default function Login() {
                 <div className="forget-password">
                   <a href="/Forget">Forget Password</a>
                 </div>
-                <button type="submit" >
-                  Login
-                </button>
+                <button type="submit">Login</button>
               </form>
 
               <p
