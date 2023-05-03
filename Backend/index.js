@@ -4,6 +4,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import connect from "./config/DB.js";
 import jobRoute from "./Routes/jobRoute.js";
+import ApplicantRoute from "./Routes/FormRoute.js";
 
 // setting the server
 
@@ -24,3 +25,4 @@ connect();
 
 // setting the routes
 app.use("/api/jobs", jobRoute);
+app.use("/api/applicants", ApplicantRoute);

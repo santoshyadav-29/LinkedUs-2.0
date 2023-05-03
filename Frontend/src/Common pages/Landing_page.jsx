@@ -19,22 +19,27 @@ export default function Landing_page() {
                 The jobs and internship opportunity of your field of interest in
                 your fingertips.
               </p>
-              <div className="user-roles" style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "1rem"
-
-              }}>
-                <label htmlFor="user-roles">Select Your Roles</label>
-                <div className="userButtons" style={{
+              <div
+                className="user-roles"
+                style={{
                   display: "flex",
-                  flexDirection: "row",
+                  flexDirection: "column",
                   justifyContent: "center",
                   alignItems: "center",
-                  gap: "1rem"
-                }}>
+                  gap: "1rem",
+                }}
+              >
+                <label htmlFor="user-roles">Select Your Roles</label>
+                <div
+                  className="userButtons"
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "1rem",
+                  }}
+                >
                   <button onClick={() => navigate("/Login")}>User</button>
                   <button onClick={() => navigate("/portal")}>Admin</button>
                 </div>
@@ -47,7 +52,7 @@ export default function Landing_page() {
                 src="https://source.unsplash.com/random/400x400"
                 alt="random image"
               /> */}
-              <img src="public\Images\Scene - 1.png" alt="img" />
+              <img src="\Images\Scene - 1.png" alt="img" />
             </div>
           </div>
         </main>

@@ -2,23 +2,12 @@ import express from "express";
 const router = express.Router();
 import Job from "../models/jobSchema.js";
 
-
-
-
-
-
-
-
 // getting all jobs
 router.get("/", (req, res) => {
-    Job.find()
-        .then((jobs) => res.json(jobs))
-        .catch((err) => res.status(400).json("Error: " + err));
+  Job.find()
+    .then((jobs) => res.json(jobs))
+    .catch((err) => res.status(400).json("Error: " + err));
 });
-
-
-
-
 
 // posting a job
 router.post("/", (req, res) => {

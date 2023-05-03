@@ -1,27 +1,43 @@
 import React from "react";
 import Applicants from "./Applicants";
 import AdminNavbar from "../Components/AdminNavbar";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
+export default function JobApplication() {
+  const [data, setData] = useState([]);
 
-export default function()
-{
-    return(
-        <div className="Container_jobapplied">
-            <AdminNavbar/>
-            <div className="header">
-            </div>
-            <div className="mid">
-                <div className="Title">Applicant Information</div>
-                <Applicants name="Muhammad Ali" Experience="2 Years" Skills="React, Node, Express" Education="BE" email="naturedgrp@gmail.com"/>
-                <Applicants name="Muhammad Ali" Experience="2 Years" Skills="React, Node, Express" Education="BE" email="naturedgrp@gmail.com"/>
-                <Applicants name="Muhammad Ali" Experience="2 Years" Skills="React, Node, Express" Education="BE" email="naturedgrp@gmail.com"/>
-                <Applicants name="Muhammad Ali" Experience="2 Years" Skills="React, Node, Express" Education="BE" email="naturedgrp@gmail.com"/>
-                <Applicants name="Muhammad Ali" Experience="2 Years" Skills="React, Node, Express" Education="BE" email="naturedgrp@gmail.com"/>
+  useEffect(() => {
+    // Make a GET request to the server
+    axios
+      .get("http://localhost:5000/api/applicants")
+      .then((response) => {
+        // Set the data state to the response data
+        setData(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
-                
-            </div>
-            <div className="footer"></div>
-            
-        </div>
-    );
+  return (
+    <div className="Container_jobapplied">
+      <AdminNavbar />
+      <div className="header"></div>
+      <div className="mid">
+        <div className="Title">Applicant Information</div>
+        {data.map((item) => (
+          <Applicants
+            key={item._id}
+            name={item.name}
+            Experience={item.Experience}
+            Skills={item.Skills}
+            Education={item.Education}
+            email={item.email}
+          />
+        ))}
+      </div>
+      <div className="footer"></div>
+    </div>
+  );
 }

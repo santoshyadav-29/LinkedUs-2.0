@@ -26,10 +26,8 @@ export default function App() {
           <Route path="*" element={<Eroor />} />
           <Route path="/portal" element={<Portal />} />
           <Route path="/jobAppliedList" element={<JobAppliedList />} />
-          <Route path="/jobpage" element={<Jobpage />} />
+          <Route path="/Jobpage" element={<Jobpage />} />
           <Route path="/ApplyJobs" element={<ApplyJobs />} />
-          
-
 
           {/* <Route path="/Search" element={<Search />} /> */}
         </Routes>
