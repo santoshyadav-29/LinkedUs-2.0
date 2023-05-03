@@ -26,13 +26,13 @@ npm install
 
 ### Run the server
 ```bash
-cd server
+cd Backend
 npm start
 ```
 
 ### Run the client
 ```bash
-cd client
+cd Frontend
 npm start
 ```
 
