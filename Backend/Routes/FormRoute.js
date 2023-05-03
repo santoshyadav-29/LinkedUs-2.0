@@ -7,27 +7,40 @@ import Applicant from "../models/applicants.js";
 router.get("/", async (req, res) => {
   try {
     const applicants = await Applicant.find();
-    res.status(200).json(applicants);
-  } catch (error) {
-    res.status(500).json({ message: "Error getting applicants" });
+    res.json(applicants);
+  } catch (err) {
+    res.status(400).json("Error: " + err);
   }
 });
 
+
 // post request to submit the application
 router.post("/", async (req, res) => {
+  const name = req.body.name;
+  const email = req.body.email;
+  const job = req.body.job;
+  const phone = req.body.phone;
+  const experience = req.body.experience;
+  const skills = req.body.skills;
+  const education = req.body.education;
+  const date = req.body.date;
+
+  const newApplicant = new Applicant({
+    name,
+    email,
+    job,
+    phone,
+    experience,
+    skills,
+    education,
+    date,
+  });
+
   try {
-    const { fullName, experience, skills, education, email } = req.body;
-    const applicant = new Applicant({
-      fullName,
-      experience,
-      skills,
-      education,
-      email,
-    });
-    await applicant.save();
-    res.status(201).json({ message: "Application submitted successfully" });
-  } catch (error) {
-    res.status(500).json({ message: "Error submitting application" });
+    await newApplicant.save();
+    res.json("Application submitted successfully!");
+  } catch (err) {
+    res.status(400).json("Error: " + err);
   }
 });
 
