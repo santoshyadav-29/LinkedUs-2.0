@@ -2,8 +2,10 @@ import Navigation_Bar from "../Components/Navigation_Bar";
 import React from "react";
 import "../CSS files/HomePage.css";
 import AnimatedPage from "../Animation";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
+  const navigate = useNavigate();
   return (
     <AnimatedPage>
       <div>
@@ -13,7 +15,12 @@ export default function HomePage() {
             <p>
               Find A <b>Job</b> That <b>Matches</b> Your Passion
             </p>
-            <form action="none">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                navigate("/Jobpage");
+              }}
+            >
               <input type="text" placeholder="Search for a job" />
               <button type="submit">Search</button>
             </form>
