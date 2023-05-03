@@ -8,12 +8,11 @@ export default function JobApplication() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // Make a GET request to the server
     axios
       .get("http://localhost:5000/api/applicants")
-      .then((response) => {
-        // Set the data state to the response data
-        setData(response.data);
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -21,23 +20,27 @@ export default function JobApplication() {
   }, []);
 
   return (
-    <div className="Container_jobapplied">
+    <div>
       <AdminNavbar />
-      <div className="header"></div>
-      <div className="mid">
-        <div className="Title">Applicant Information</div>
-        {data.map((item) => (
-          <Applicants
-            key={item._id}
-            name={item.name}
-            Experience={item.Experience}
-            Skills={item.Skills}
-            Education={item.Education}
-            email={item.email}
-          />
-        ))}
+      <h1 style={{ textAlign: "center" }}>Job Applications</h1>
+      <div
+        style={{
+         
+        }}
+      >
+        {data.map((applicant) => {
+          return (
+            <Applicants
+              key={applicant._id}
+              name={applicant.name}
+              Experience={applicant.experience}
+              Skills={applicant.skills}
+              Education={applicant.education}
+              email={applicant.email}
+            />
+          );
+        })}
       </div>
-      <div className="footer"></div>
     </div>
   );
 }
