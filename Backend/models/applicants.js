@@ -1,7 +1,11 @@
 import { Schema, model } from "mongoose";
 
 const applicantSchema = new Schema({
-  fullName: {
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
     type: String,
     required: true,
   },
@@ -14,10 +18,6 @@ const applicantSchema = new Schema({
     required: true,
   },
   education: {
-    type: String,
-    required: true,
-  },
-  email: {
     type: String,
     required: true,
   },
