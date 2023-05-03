@@ -10,7 +10,7 @@ export default function Jobs(props) {
     alignItems: "center",
     gap: "1rem",
     margin: "1rem",
-    backgroundColor: "pink",
+    backgroundColor: "#f5f5f5",
     borderRadius: "1rem",
     padding: "1rem",
     boxShadow: "2px 2px 10px 0 rgba(0,0,0,0.2)",
