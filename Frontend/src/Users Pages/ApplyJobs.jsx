@@ -3,18 +3,39 @@ import axios from "axios";
 import Navigation_Bar from "../Components/Navigation_Bar";
 
 export default function ApplyJobs() {
- 
+  const [name, setFullName] = useState("");
+  const [experience, setExperience] = useState("");
+  const [skills, setSkills] = useState("");
+  const [education, setEducation] = useState("");
+  const [email, setEmail] = useState("");
+
+  const submit = async (e) => {
+    e.preventDefault();
+    try {
+      const newApplicant = {
+        name,
+        experience,
+        skills,
+        education,
+        email,
+      };
+      await axios.post("http://localhost:5000/api/applicants", newApplicant);
+      alert("Applied Successfully");
+    } catch (err) {
+      alert("Error while applying for job");
+    }
+  };
 
   return (
     <div className="layout">
       <Navigation_Bar />
       <div className="Apply-Jobs">
         <h1 style={{ textAlign: "center" }}>Apply For Jobs</h1>
-        <form>
+        <form onSubmit={submit}>
           <input
             type="text"
             placeholder="Full Name"
-            value={fullName}
+            value={name}
             onChange={(e) => setFullName(e.target.value)}
           />
           <input
@@ -41,9 +62,8 @@ export default function ApplyJobs() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <button type="submit" onClick={handleSubmit}>
-            Submit
-          </button>
+
+          <button type="submit">Submit</button>
         </form>
       </div>
     </div>
