@@ -79,6 +79,7 @@ export default function JobPosting() {
             Post
           </button>
         </form>
+        
       </div>
     </div>
   );
