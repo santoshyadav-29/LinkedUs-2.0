@@ -16,7 +16,7 @@ export default function AdminNavbar() {
         >
             <li> <Link to="/Jobposting">Create a Job</Link></li>
             <li> <Link to="/jobAppliedList">Applicants</Link></li>
-            <li> <Link>Post Something</Link></li>
+            <li> <Link to ="/jobPosted">Your Jobs</Link></li>
            
         </ul>
 

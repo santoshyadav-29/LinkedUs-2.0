@@ -1,23 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Navigation_Bar(props) {
-  const style = {
-    color: "black",
-  };
+  const [showText, setShowText] = useState(false);
+
+  function handleLogo() {
+    setShowText(!showText);
+  }
+  
+
   return (
     <div>
       <header>
         <div className="navbar">
           <div className="logo">
-            <Link style={style} to="/">
-              <h1>linkedUs</h1>
-            </Link>
+            <img onClick={handleLogo} src="/Images/LinkedUs1.png" alt="" />
+           { showText && <h1>LinkedUs</h1>}
           </div>
           <div className="nav-links">
             <ul>
               <li>
-                <Link to="/Login">{ props.name}</Link>{" "}
+                <Link to="/Login">{props.name}</Link>{" "}
               </li>
               <li>
                 <Link to="/Contact">Contact</Link>

@@ -4,6 +4,8 @@ import Navigation_Bar from "../Components/Navigation_Bar";
 import AnimatedPage from "../Animation";
 import { Link, useNavigate } from "react-router-dom";
 import "../CSS files/Login.css";
+import axios from "axios";
+import Footer from "../Components/Footer";
 
 // Stores the user data
 export default function Login() {
@@ -15,8 +17,35 @@ export default function Login() {
   const handleSumbit = (e) => {
     e.preventDefault();
     // Make a POST request to the server
-    navigate("/Homepage");
+    axios
+      .post("http://localhost:5000/api/user/login", {
+        email: email,
+        password: password,
+
+      })
+      .then((res) => {
+        // If the request is successful, store the token in the local storage
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        localStorage.setItem("role", res.data.user.Roles);
+        localStorage.setItem("id", res.data.user._id);
+        localStorage.setItem("name", res.data.user.name);
+        localStorage.setItem("email", res.data.user.email);
+
+        // Redirect to the home page
+        navigate("/HomePage");
+      })
+      .catch((err) => {
+        // If the request is unsuccessful, show an error message
+        alert("Invalid Credentials");
+      });
   };
+
+       
+
+
+
+
 
   return (
     <AnimatedPage>
@@ -60,11 +89,11 @@ export default function Login() {
                   textAlign: "center",
                 }}
               >
-                New?
+                New?  &nbsp;  
                 <Link
                   style={{
                     textDecoration: "underline",
-                    color: "rgba(89, 86, 233, 1)",
+                   
                   }}
                   to="/Register"
                 >
@@ -75,6 +104,7 @@ export default function Login() {
           </div>
         </main>
       </div>
+      <Footer />
     </AnimatedPage>
   );
 }

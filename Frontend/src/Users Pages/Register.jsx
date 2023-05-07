@@ -2,6 +2,7 @@ import React from "react";
 import "../CSS files/Register.css";
 import Navigation_Bar from "../Components/Navigation_Bar";
 import axios from "axios";
+import Footer from "../Components/Footer";
 
 export default function Register() {
   const [password, setPassword] = React.useState("");
@@ -9,8 +10,6 @@ export default function Register() {
   const [email, setEmail] = React.useState("");
   const [name, setName] = React.useState("");
 
-
-  
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
@@ -19,9 +18,14 @@ export default function Register() {
       password: password,
       Roles: Roles,
     };
-    axios.post("http://localhost:3000/api/users/register", data).then((res) => {
-      alert("User Registered");
-    });
+    axios
+      .post("http://localhost:5000/api/user/register", data)
+      .then((res) => {
+        alert("User Registered");
+      })
+      .catch((err) => {
+        alert("User Not Registered");
+      });
   };
 
   return (
@@ -64,12 +68,17 @@ export default function Register() {
                 setRoles(e.target.value);
               }}
             />
-            <button type="submit" onClick={handleSubmit}>
+            <button style={{
+              marginBottom: "20px",
+            }} type="submit" onClick={handleSubmit}>
               Sign Up
             </button>
           </form>
         </div>
       </div>
+      <Footer
+        
+      />
     </div>
   );
 }

@@ -24,22 +24,23 @@ form {
 }
 
 .input {
-    
+
   display: flex;
   gap: 1em;
 }
 
- input {
-    background: rgba(126, 209, 245, 0.11);
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 30px;
-    padding: 0.8em;
-   width: 550px;
-    font-size: 1rem;
-    font-weight: 300;
-    font-family: var(--grey-shade);
+input {
+  background: rgba(126, 209, 245, 0.11);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+ 
+  padding: 0.8em;
+  width: 550px;
+  font-size: 1rem;
+  font-weight: 300;
+  font-family: var(--grey-shade);
   /* width: 250px; */
 }
+
 /* button {
 
     padding: 0.7em;

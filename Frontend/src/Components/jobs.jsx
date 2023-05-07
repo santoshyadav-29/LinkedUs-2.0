@@ -12,6 +12,7 @@ export default function Jobs(props) {
     margin: "1rem",
     backgroundColor: "#f5f5f5",
     borderRadius: "1rem",
+    width: "60%",
     padding: "1rem",
     boxShadow: "2px 2px 10px 0 rgba(0,0,0,0.2)",
   };

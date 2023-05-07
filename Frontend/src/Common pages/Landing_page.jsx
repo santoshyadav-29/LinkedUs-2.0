@@ -3,6 +3,7 @@ import Navigation_Bar from "../Components/Navigation_Bar";
 // import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import AnimatedPage from "../Animation";
+import Footer from "../Components/Footer";
 
 export default function Landing_page() {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ export default function Landing_page() {
   return (
     <AnimatedPage>
       <div className="layout">
-        <Navigation_Bar name="Login" />
+        <Navigation_Bar  />
         <main>
           <div className="main-content">
             <div className="left-section">
@@ -29,15 +30,15 @@ export default function Landing_page() {
                   gap: "1rem",
                 }}
               >
-                <label htmlFor="user-roles">Select Your Roles</label>
                 <div
                   className="userButtons"
                   style={{
                     display: "flex",
                     flexDirection: "row",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "1rem",
+                    // border:"solid",
+                    width: "30vw",
+
+                    gap: "1em",
                   }}
                 >
                   <button onClick={() => navigate("/Login")}>User</button>
@@ -57,6 +58,7 @@ export default function Landing_page() {
           </div>
         </main>
       </div>
+      <Footer />
     </AnimatedPage>
   );
 }

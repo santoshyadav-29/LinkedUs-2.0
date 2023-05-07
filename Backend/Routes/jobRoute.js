@@ -29,4 +29,19 @@ router.post("/", (req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+// getting a specific job
+router.get("/:id", (req, res) => {
+  Job.findById(req.params.id)
+    .then((job) => res.json(job))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
+// deleting a specific job
+router.delete("/:id", (req, res) => {
+  Job.findByIdAndDelete(req.params.id)
+
+    .then(() => res.json("Job posting deleted."))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
 export default router;

@@ -3,6 +3,7 @@ import React from "react";
 import "../CSS files/HomePage.css";
 import AnimatedPage from "../Animation";
 import { useNavigate } from "react-router-dom";
+import Footer from "../Components/Footer";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -27,12 +28,13 @@ export default function HomePage() {
           </div>
           <div className="grid-right">
             <img
-              src="public\Images\Man working with laptop and sitting in chair.png"
+              src="\Images\Man working with laptop and sitting in chair.png"
               alt=""
             />
           </div>
         </div>
       </div>
+      <Footer />
     </AnimatedPage>
   );
 }
