@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "../CSS files/AboutUs.css";
 import Navigation_Bar from "../Components/Navigation_Bar";
 import Footer from "../Components/Footer";
+import WhatDo from "../Components/WhatDo";
+import HowHelp from "../Components/HowHelp";
+import MoreInfo from "../Components/MoreInfo";
 
 export default function AboutUs() {
+  const [showModal, setShowModel] = useState(false);
+  const [showModal2, setShowModel2] = useState(false);
+  const [showModal3, setShowModel3] = useState(false);
+
+  const closeModal = () => setShowModel(false);
+  const closeModal2 = () => setShowModel2(false);
+  const closeModal3 = () => setShowModel3(false);
+
   return (
     <>
       <div className="layout">
         <Navigation_Bar />
+        {showModal && <WhatDo closeModal={closeModal} />}
+        {showModal2 && <HowHelp closeModal2={closeModal2} />}
+        {showModal3 && <MoreInfo closeModal3={closeModal3} />}
+
         <div className="AboutUsOverall">
           <div className="Divider">.</div>
 
@@ -27,7 +42,13 @@ export default function AboutUs() {
                   ducimus fuga! Incidunt libero itaque quam!
                 </p>
               </div>
-              <button id="ViewMore"></button>
+              <button
+                class="Viewmore "
+                id="ViewMore1"
+                onClick={() => setShowModel(true)}
+              >
+                View More
+              </button>
             </div>
             <div className="AboutUs2">
               <h1>How Can We Help ?</h1>
@@ -40,7 +61,13 @@ export default function AboutUs() {
                   nesciunt porro.
                 </p>
               </div>
-              <button id="ViewMore"></button>
+              <button
+                class="Viewmore"
+                id="ViewMore2"
+                onClick={() => setShowModel2(true)}
+              >
+                ViewMore
+              </button>
             </div>
             <div className="AboutUs3">
               <h1>More information..</h1>
@@ -53,7 +80,13 @@ export default function AboutUs() {
                   officiis.
                 </p>
               </div>
-              <button id="ViewMore"></button>
+              <button
+                class="Viewmore"
+                id="ViewMore3"
+                onClick={() => setShowModel3(true)}
+              >
+                ViewMore
+              </button>
             </div>
           </div>
         </div>
