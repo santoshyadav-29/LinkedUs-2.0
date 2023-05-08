@@ -85,7 +85,7 @@ Header {
   font-weight: 400;
   transition: all 0.4s ease-in-out;
   color: var(--primary-color);
-  animation: logo 2s ;
+  animation: logo 2s;
 
 }
 
@@ -104,7 +104,7 @@ Header {
     opacity: 1;
     transform: scale(1);
   }
-  
+
 }
 
 
