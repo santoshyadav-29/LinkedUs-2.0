@@ -1,5 +1,9 @@
 {
   "dependencies": {
-    "nodemon": "^2.0.22"
+    "bcrypt": "^5.1.0",
+    "jsonwebtoken": "^9.0.0",
+    "jwtoken": "^0.0.0",
+    "nodemon": "^2.0.22",
+    "token": "^0.1.0"
   }
 }

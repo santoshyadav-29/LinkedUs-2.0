@@ -3,42 +3,55 @@ const router = express.Router();
 import User from "../models/userSchema.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import Login from "../models/userSchema.js";
 
-router.post("/register", async (req, res) => {
-  try {
-    // Check if the user already exists
-    const userExists = await User.findOne({ email: req.body.email });
-    if (userExists) {
-      return res.status(400).json({ message: "User already exists" });
-    }
+//to get the info fill by user
+router.post("/Register", (req, res) => {
+  const { name, email, password, repassword, roles } = req.body;
+  console.log(1);
 
-    // Hash the password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
-    // Create a new user
-    const user = new User({
-      name: req.body.name,
-      email: req.body.email,
-      password: hashedPassword,
-      Roles: req.body.roles,
-    });
-
-    // Save the user to the database
-    await user.save();
-
-    res.status(201).json({ message: "User registered" });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: "Server error" });
+  //checking if user fill all the info
+  if (!name || !email || !password || !repassword || !roles) {
+    return res.status(422).json({ error: "Please fill all info" });
   }
+  console.log(1);
+
+  Login.findOne({ email: email })
+    .then((userExist) => {
+      //checks whether the user has already made an account or not
+
+      //if yes this executes
+      if (userExist) {
+        return res.status(422).json({ error: "already existed" });
+      }
+
+      //or else this one
+      // password =bcrypt.hash(this.password, 12);
+      // repassword =bcrypt.hash(this.repassword, 12);
+      const newUser = new Login({ name, email, password, repassword, roles });
+      console.log(newUser);
+
+      newUser
+        .save()
+        .then(() => {
+          res.status(201).json({ message: "user registered" });
+        })
+        .catch((err) => res.status(500).json({ error: "failewed" }));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 // Login route
-router.post("/login", async (req, res) => {
+
+router.post("/Login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
+    if (!email || !password) {
+      console.log("password and email must be filled");
+    }
     // Check if user with given email exists
     const user = await User.findOne({ email });
     if (!user) {

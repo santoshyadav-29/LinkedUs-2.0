@@ -5,7 +5,8 @@ import bodyParser from "body-parser";
 import connect from "./config/DB.js";
 import jobRoute from "./Routes/jobRoute.js";
 import ApplicantRoute from "./Routes/FormRoute.js";
-import userRoute from "./Routes/userRoute.js";
+import loginRoute from "./Routes/loginRoute.js";
+import RegisterRoute from "./Routes/RegisterRoute.js";
 
 // setting the server
 
@@ -32,5 +33,7 @@ connect();
 // setting the routes
 app.use("/api/jobs", jobRoute);
 app.use("/api/applicants", ApplicantRoute);
-app.use("/api/user", userRoute);
+app.use("/Login", loginRoute);
+app.use("/api/Register", RegisterRoute);
+
 

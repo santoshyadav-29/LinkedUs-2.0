@@ -6,82 +6,88 @@ import { Link, useNavigate } from "react-router-dom";
 import "../CSS files/Login.css";
 import axios from "axios";
 import Footer from "../Components/Footer";
+import { Navigate  } from "react-router-dom";
+
 
 // Stores the user data
+var User = {
+  email: "",
+  password: "",
+};
+
+// Function to submit the form
+const submit = (e) => {
+  e.preventDefault();
+  User.email = e.target.email.value;
+  User.password = e.target.password.value;
+  console.log(User);
+};
+
 export default function Login() {
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  // Handles the submit event
-  const handleSumbit = (e) => {
+  //  Redirects to the homepage if the user is admin
+  const LoginUser = async (e) => {
     e.preventDefault();
-    // Make a POST request to the server
-    axios
-      .post("http://localhost:5000/api/user/login", {
-        email: email,
-        password: password,
 
-      })
-      .then((res) => {
-        // If the request is successful, store the token in the local storage
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("user", JSON.stringify(res.data.user));
-        localStorage.setItem("role", res.data.user.Roles);
-        localStorage.setItem("id", res.data.user._id);
-        localStorage.setItem("name", res.data.user.name);
-        localStorage.setItem("email", res.data.user.email);
-
-        // Redirect to the home page
-        navigate("/HomePage");
-      })
-      .catch((err) => {
-        // If the request is unsuccessful, show an error message
-        alert("Invalid Credentials");
+    try {
+      //axios-makes the http requests on the localhost
+      const response = await axios.post("http://localhost:3000/Login", {
+        email,
+        password,
       });
+      console.log("login");
+      // localStorage.setItem("userkey", response.data.token);
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+      localStorage.setItem("roles", response.data.roles);
+      localStorage.setItem("id", response.data._id);
+      localStorage.setItem("name", response.data.name);
+      localStorage.setItem("email", response.data.email);
+      navigate("/Homepage");
+    } catch (e) {
+      alert("failed" + e);
+    }
   };
-
-       
-
-
-
-
-
   return (
     <AnimatedPage>
       <div className="layout">
-        <Navigation_Bar name="register" />
+        <Navigation_Bar />
         <main>
           <div className="main-content">
             <div className="right-section">
               {/* random image from unsplash */}
-              <img src="\Images\Scene - 1.png" alt="random" />
+              <img src="public\Images\Scene - 1.png" alt="random" />
             </div>
             <div className="left-section">
               <h1>Sign In</h1>
-              <form onSubmit={handleSumbit}>
+              <form method="POST" action="/login" onSubmit={submit}>
                 <input
                   type="email"
                   name="email"
                   id="email"
                   placeholder="Username"
                   value={email}
-                  onChange={(e) => setemail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
 
                 <input
                   type="password"
-                  id="password"
+                  id="pass"
                   name="password"
+                  minLength="8"
                   placeholder="Password"
                   value={password}
-                  onChange={(e) => setpassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
-
                 <div className="forget-password">
-                  <a href="/Forget">Forget Password</a>
+                  <a href="/Forget">Forget Password</a>{" "}
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit" onClick={LoginUser}>
+                  Login
+                </button>
               </form>
 
               <p
@@ -89,11 +95,11 @@ export default function Login() {
                   textAlign: "center",
                 }}
               >
-                New?  &nbsp;  
+                New?{" "}
                 <Link
                   style={{
                     textDecoration: "underline",
-                   
+                    color: "rgba(89, 86, 233, 1)",
                   }}
                   to="/Register"
                 >
@@ -104,7 +110,6 @@ export default function Login() {
           </div>
         </main>
       </div>
-      <Footer />
     </AnimatedPage>
   );
 }
