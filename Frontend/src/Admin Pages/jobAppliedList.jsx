@@ -9,7 +9,7 @@ export default function JobApplication() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/applicants")
+      .get("http://localhost:3000/api/applicants")
       .then((res) => {
         console.log(res.data);
         setData(res.data);

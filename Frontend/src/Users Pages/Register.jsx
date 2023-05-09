@@ -2,29 +2,42 @@ import React from "react";
 import "../CSS files/Register.css";
 import Navigation_Bar from "../Components/Navigation_Bar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import Footer from "../Components/Footer";
 
 export default function Register() {
-  const [password, setPassword] = React.useState("");
-  const [Roles, setRoles] = React.useState("");
-  const [email, setEmail] = React.useState("");
   const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [repassword, setrePassword] = React.useState("");
+  const [role, setRoles] = React.useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const submit = (e) => {
     e.preventDefault();
-    const data = {
+    console.log("jj");
+    if (password !== repassword) {
+      alert("password and repassword do not match");
+      return;
+    }
+    console.log("jj");
+    const requestData = {
       name: name,
       email: email,
       password: password,
-      Roles: Roles,
+      role: role,
+      repassword: repassword,
     };
+    console.log("jj");
     axios
-      .post("http://localhost:5000/api/user/register", data)
+      .post("http://localhost:3000/api/Register", requestData)
       .then((res) => {
         alert("User Registered");
+        navigate("/login");
       })
       .catch((err) => {
         alert("User Not Registered");
+        console.log(err);
       });
   };
 
@@ -34,17 +47,17 @@ export default function Register() {
         <Navigation_Bar name="Login" />
         <div className="Register_page">
           <h1>Sign Up</h1>
-          <form action="none">
+          <form onSubmit={submit}>
             <input
               type="text"
+              name="name"
               placeholder="Full Name"
               value={name}
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
+              onChange={(e) => setName(e.target.value)}
             ></input>
             <input
               type="email"
+              name="email"
               placeholder=" Email"
               value={email}
               onChange={(e) => {
@@ -53,32 +66,43 @@ export default function Register() {
             ></input>
             <input
               type="password"
+              name="password"
               placeholder="Password"
               value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
             ></input>
-            <input type="password" placeholder="Re-enter Password"></input>
+            <input
+              type="password"
+              name="repassword"
+              placeholder="Re-enter Password"
+              value={repassword}
+              onChange={(e) => {
+                setrePassword(e.target.value);
+              }}
+            ></input>
             <input
               type="text"
+              name="role"
               placeholder="Your Role"
-              value={Roles}
+              value={role}
               onChange={(e) => {
                 setRoles(e.target.value);
               }}
             />
-            <button style={{
-              marginBottom: "20px",
-            }} type="submit" onClick={handleSubmit}>
+            <button
+              style={{
+                marginBottom: "20px",
+              }}
+              type="submit"
+            >
               Sign Up
             </button>
           </form>
         </div>
       </div>
-      <Footer
-        
-      />
+      <Footer />
     </div>
   );
 }
