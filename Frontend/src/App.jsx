@@ -12,6 +12,7 @@ import Jobpage from "./Users Pages/jobpage";
 import ApplyJobs from "./Users Pages/applyJobs";
 import JobPosted from "./Admin Pages/JobPosted";
 import AboutUs from "./Common pages/AboutUs";
+import ContactUs from "./Common pages/ContactUS";
 
 export default function App() {
   return (
@@ -20,7 +21,6 @@ export default function App() {
       {/* no changes */}
       <BrowserRouter>
         <Routes>
-          
           <Route path="/" element={<Landing_page />} />
           <Route path="/Homepage" element={<HomePage />} />
           <Route path="/Login" element={<Login />} />
@@ -33,7 +33,7 @@ export default function App() {
           <Route path="/ApplyJobs" element={<ApplyJobs />} />
           <Route path="/jobPosted" element={<JobPosted />} />
           <Route path="/AboutUs" element={<AboutUs />} />
-
+          <Route path="/ContactUs" element={<ContactUs />} />
 
           {/* <Route path="/Search" element={<Search />} /> */}
         </Routes>
