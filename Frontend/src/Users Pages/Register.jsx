@@ -15,12 +15,12 @@ export default function Register() {
 
   const submit = (e) => {
     e.preventDefault();
-    console.log("jj")
+    console.log("jj");
     if (password !== repassword) {
       alert("password and repassword do not match");
       return;
     }
-    console.log("jj")
+    console.log("jj");
     const requestData = {
       name: name,
       email: email,
@@ -28,11 +28,12 @@ export default function Register() {
       role: role,
       repassword: repassword,
     };
-    console.log("jj")
-    axios.post(
-      "http://localhost:3000/api/Register" ,requestData)
+    console.log("jj");
+    axios
+      .post("http://localhost:3000/api/Register", requestData)
       .then((res) => {
         alert("User Registered");
+        navigate("/login");
       })
       .catch((err) => {
         alert("User Not Registered");
@@ -78,7 +79,8 @@ export default function Register() {
               placeholder="Re-enter Password"
               value={repassword}
               onChange={(e) => {
-              setrePassword(e.target.value);}}
+                setrePassword(e.target.value);
+              }}
             ></input>
             <input
               type="text"
@@ -94,7 +96,6 @@ export default function Register() {
                 marginBottom: "20px",
               }}
               type="submit"
-
             >
               Sign Up
             </button>

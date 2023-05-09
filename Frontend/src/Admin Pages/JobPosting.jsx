@@ -18,7 +18,7 @@ export default function JobPosting() {
       date: date,
     };
     axios
-      .post("http://localhost:5000/api/jobs", data)
+      .post("http://localhost:3000/api/jobs", data)
       .then((res) => {
         console.log(res);
         alert("Job Posted Successfully");

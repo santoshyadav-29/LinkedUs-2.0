@@ -11,7 +11,7 @@ export default function Jobpage() {
   useEffect(() => {
     // Make a GET request to the server
     axios
-      .get("http://localhost:5000/api/jobs")
+      .get("http://localhost:3000/api/jobs")
       .then((res) => {
         console.log(res.data);
         setData(res.data);
@@ -20,24 +20,7 @@ export default function Jobpage() {
         console.log(err);
       });
   }, []);
-  // const jobList = data;
-
-  // const handleSubmit = (e) => {
-  //   // filter the data
-  //   e.preventDefault();
-  //   const filteredData = jobList.filter((item) => {
-  //     return item.title.toLowerCase().includes(search.toLowerCase());
-  //   });
-
-  //   // set the data
-  //   setData(filteredData);
-
-  //   // reset the search
-  //   setSearch("");
-  //   setTimeout(() => {
-  //     setData(jobList);
-  //   }, 5000);
-  // };
+  
 
   return (
     <div>

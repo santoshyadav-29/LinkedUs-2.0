@@ -82,9 +82,9 @@ export default function Login() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <div className="forget-password">
+                {/* <div className="forget-password">
                   <a href="/Forget">Forget Password</a>{" "}
-                </div>
+                </div> */}
                 <button type="submit" onClick={LoginUser}>
                   Login
                 </button>

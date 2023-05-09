@@ -18,22 +18,22 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   const name = req.body.name;
   const email = req.body.email;
-  const job = req.body.job;
-  const phone = req.body.phone;
+  // const job = req.body.job;
+  // const phone = req.body.phone;
   const experience = req.body.experience;
   const skills = req.body.skills;
   const education = req.body.education;
-  const date = req.body.date;
+  // const date = req.body.date;
 
   const newApplicant = new Applicant({
     name,
     email,
-    job,
-    phone,
+    // job,
+    // phone,
     experience,
     skills,
     education,
-    date,
+    // date,
   });
 
   try {
