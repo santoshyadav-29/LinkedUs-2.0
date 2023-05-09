@@ -8,15 +8,19 @@ export default function Navigation_Bar(props) {
   function handleLogo() {
     setShowText(!showText);
   }
-  
 
   return (
     <div>
       <header>
         <div className="navbar">
           <div className="logo">
-            <img onClick={handleLogo} src="/Images/LinkedUs1.png" alt="" />
-           { showText && <h1>LinkedUs</h1>}
+            <img
+              onClick={handleLogo}
+              src="/Images/LinkedUs1.png"
+              alt=""
+              id="MainLogo"
+            />
+            {showText && <h1>LinkedUs</h1>}
           </div>
           <div className="nav-links">
             <ul>

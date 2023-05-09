@@ -11,6 +11,7 @@ import JobAppliedList from "./Admin Pages/jobAppliedList";
 import Jobpage from "./Users Pages/jobpage";
 import ApplyJobs from "./Users Pages/applyJobs";
 import JobPosted from "./Admin Pages/JobPosted";
+import AboutUs from "./Common pages/AboutUs";
 
 export default function App() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="/Jobpage" element={<Jobpage />} />
           <Route path="/ApplyJobs" element={<ApplyJobs />} />
           <Route path="/jobPosted" element={<JobPosted />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
 
 
           {/* <Route path="/Search" element={<Search />} /> */}
