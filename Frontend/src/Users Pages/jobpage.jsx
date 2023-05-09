@@ -57,7 +57,7 @@ export default function Jobpage() {
         }}
       >
         {
-          // fileter the data
+          // filter the data
           data
             .filter((item) => {
               return search.toLowerCase() === ""
