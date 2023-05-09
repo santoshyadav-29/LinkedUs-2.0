@@ -1,13 +1,18 @@
 import React from 'react'
 import {useState} from 'react'
-import  Navigate  from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function Portal() {
+  const [message, setMessage] = useState("")
+  const [animation, setAnimation] = useState(0)
+
   
   
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+
+  const navigate = useNavigate();
 
 
   
@@ -24,12 +29,21 @@ export default function Portal() {
   const handleClick = (e) => {
     e.preventDefault()
     if(username === "admin" && password === "admin"){
-     Navigate("/ad");
+      setMessage("Login Successful")
+      setTimeout(() => {
+      navigate ("/jobPosting")
+      },500)
     }
     else{
-      alert("Invalid Credentials")
+      setMessage("Invalid Credentials");
+      setTimeout(() => {
+        setMessage("")
+
+      },2000)
     }
+
   }
+
   
 
   const style = {
@@ -47,6 +61,12 @@ export default function Portal() {
   const inputStyle = {
     width:"300px",
   }
+  const styleMessage = {
+    color:"red",
+    textAlign:"center",
+    marginTop:"1rem",
+    
+  }
 
 
   return (
@@ -56,6 +76,14 @@ export default function Portal() {
         <input style={inputStyle} type="text" value={username}  onChange={handleChange}placeholder="Username"></input>
         <input style={inputStyle} type="password" value={password} onChange={handleChange} placeholder="Password"></input>
         <button type="submit" onClick={handleClick}>Login</button>
+        <div style={styleMessage} className="message" onChange={
+          () => {
+            setAnimation(1)
+            setTimeout(() => {
+              setAnimation(0)
+            },2000)
+          }
+        }>{message}</div>
       </form>
 
     </div>
