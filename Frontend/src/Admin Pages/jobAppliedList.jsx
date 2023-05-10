@@ -22,16 +22,17 @@ export default function JobApplication() {
   return (
     <div>
       <AdminNavbar />
-      <h1 style={{ textAlign: "center" }}>Job Applications</h1>
-      <div
-        style={{
-         
-        }}
-      >
+      {/* <h1 style={{ textAlign: "center",
+     
+    
+    }}>Applicants</h1> */}
+      <hr />
+      <div>
         {data.map((applicant) => {
           return (
             <Applicants
               key={applicant._id}
+              job="React Developer"
               name={applicant.name}
               Experience={applicant.experience}
               Skills={applicant.skills}
@@ -40,6 +41,10 @@ export default function JobApplication() {
             />
           );
         })}
+
+       
+       
+        
       </div>
     </div>
   );
