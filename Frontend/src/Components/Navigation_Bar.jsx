@@ -20,7 +20,13 @@ export default function Navigation_Bar(props) {
               alt=""
               id="MainLogo"
             />
-            {showText && <h1>LinkedUs</h1>}
+            {showText && <h1
+            style={{
+              fontSize: "1.5rem",
+              fontFamily: "cursive",
+            }}
+            
+            >LinkedUs</h1>}
           </div>
           <div className="nav-links">
             <ul>

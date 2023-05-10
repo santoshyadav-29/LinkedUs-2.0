@@ -9,13 +9,13 @@ export default function ContactUs() {
       <div className="layout">
         <Navigation_Bar />
         <div className="AboutUsOverall">
-          <div className="Divider">.</div>
+          {/* <div className="Divider">.</div> */}
 
           <div className="Mid">
             <p id="Contact">Contact Us</p>
             <img src="\Images\\Contact.png" alt="img" id="imageee" />
           </div>
-          <div className="Divider">.</div>
+          {/* <div className="Divider">.</div> */}
           <div className="Bottom">
             <div className="AboutUs1">
               <h1>Email</h1>
@@ -28,7 +28,7 @@ export default function ContactUs() {
                 </p>
               </div>
             </div>
-            <div className="AboutUs2">
+            <div className="AboutUs1">
               <h1>Phone Number ?</h1>
               <div className="paragraph">
                 <p>
@@ -40,7 +40,7 @@ export default function ContactUs() {
                 </p>
               </div>
             </div>
-            <div className="AboutUs3">
+            <div className="AboutUs1">
               <h1>More information..</h1>
               <div className="paragraph">
                 <p>
