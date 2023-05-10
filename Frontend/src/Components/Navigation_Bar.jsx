@@ -28,10 +28,10 @@ export default function Navigation_Bar(props) {
                 <Link to="/Login">{props.name}</Link>{" "}
               </li>
               <li>
-                <Link to="/Contact">Contact</Link>
+                <Link to="/Contactus">Contact</Link>
               </li>
               <li>
-                <Link to="/About">About Us</Link>{" "}
+                <Link to="/Aboutus">About Us</Link>{" "}
               </li>
             </ul>
             <svg
