@@ -9,7 +9,7 @@ export default function JobPosted() {
   useEffect(() => {
     // Make a GET request to the server
     axios
-      .get("http://localhost:5000/api/jobs")
+      .get("http://localhost:3000/api/jobs")
       .then((res) => {
         setData(res.data);
       })
@@ -21,7 +21,7 @@ export default function JobPosted() {
   const handleDelete = (id) => {
     // Make a DELETE request to the server with the job ID
     axios
-      .delete(`http://localhost:5000/api/jobs/${id}`)
+      .delete(`http://localhost:3000/api/jobs/${id}`)
       .then(() => {
         // Remove the job from the state
         setData((prevData) => prevData.filter((item) => item._id !== id));

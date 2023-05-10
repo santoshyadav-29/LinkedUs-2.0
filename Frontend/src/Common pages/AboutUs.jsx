@@ -24,10 +24,12 @@ export default function AboutUs() {
         {showModal3 && <MoreInfo closeModal3={closeModal3} />}
 
         <div className="AboutUsOverall">
+
           <div className="Mid">
             <p>About Us</p>
             <img src="\Images\\AboutUs.png" alt="img" id="imagee" />
           </div>
+
           <div className="Bottom">
             <div className="AboutUs1">
               <h1>What Do We Do ?</h1>
@@ -47,7 +49,7 @@ export default function AboutUs() {
                 View More
               </button>
             </div>
-            <div className="AboutUs2">
+            <div className="AboutUs1">
               <h1>How Can We Help ?</h1>
               <div className="paragraph">
                 <p>
@@ -66,7 +68,7 @@ export default function AboutUs() {
                 ViewMore
               </button>
             </div>
-            <div className="AboutUs3">
+            <div className="AboutUs1">
               <h1>More information..</h1>
               <div className="paragraph">
                 <p>

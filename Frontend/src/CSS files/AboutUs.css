@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 .AboutUsOverall {
-    height: 60rem;
-    width: 100%;
+    /* height: 60rem; */
+    /* width: 100%; */
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    padding: 1rem;
 
 }
 
@@ -15,7 +16,7 @@
 .Mid {
     background-color: rgba(217, 217, 217, 1);
     width: 100%;
-    height: 40%;
+    /* height: 40%; */
     display: flex;
     align-items: center;
     border-radius: 20px;
@@ -31,12 +32,13 @@
 }
 
 #imagee {
-    height: 95%;
+    /* height: 95%; */
     width: 60%;
+    
     margin-left: 5rem;
 }
 #imageee {
-    height: 95%;
+    /* height: 95%; */
     width: 40%;
     margin-left: 15rem;
 }
@@ -60,19 +62,19 @@
 
 .AboutUs1 {
     background-color: rgba(217, 217, 217, 1);
-    width: 30%;
-    height: 80%;
+    /* width: 30%; */
+    /* height: 80%; */
     border-radius: 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 3rem;
+   padding: 1em;
     overflow: hidden;
 }
 
 
 
-.AboutUs2 {
+/* .AboutUs2 {
     background-color: rgba(217, 217, 217, 1);
     width: 30%;
     height: 80%;
@@ -96,7 +98,7 @@
     padding-top: 3rem;
     overflow: hidden;
 
-}
+} */
 
 .AboutUs1 h1 {
     color: rgba(89, 86, 233, 1);
