@@ -9,19 +9,14 @@ export default function ContactUs() {
       <div className="layout">
         <Navigation_Bar />
         <div className="AboutUsOverall">
-<<<<<<< HEAD
-          {/* <div className="Divider">.</div> */}
 
-=======
->>>>>>> f0d7f49749447f2057a830a97af31436cd7d7c09
+
+
           <div className="Mid">
             <p id="Contact">Contact Us</p>
             <img src="\Images\\Contact.png" alt="img" id="imageee" />
           </div>
-<<<<<<< HEAD
-          {/* <div className="Divider">.</div> */}
-=======
->>>>>>> f0d7f49749447f2057a830a97af31436cd7d7c09
+
           <div className="Bottom">
             <div className="AboutUs1">
               <h1>Email</h1>

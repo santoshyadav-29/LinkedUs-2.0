@@ -5,8 +5,6 @@ import AnimatedPage from "../Animation";
 import { Link, useNavigate } from "react-router-dom";
 import "../CSS files/Login.css";
 import axios from "axios";
-import Footer from "../Components/Footer";
-import { Navigate  } from "react-router-dom";
 
 
 // Stores the user data
@@ -64,14 +62,15 @@ export default function Login() {
             <div className="left-section">
               <h1>Sign In</h1>
               <form method="POST" action="/login" onSubmit={submit}>
-                <input
-                  type="email"
+                <input type="text"
+                 
                   name="email"
-                  id="email"
-                  placeholder="Username"
+                  placeholder="Email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+                  onChange={(e) => setEmail(e.target.value)} />
+                
+                
+               
 
                 <input
                   type="password"

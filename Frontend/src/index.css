@@ -14,6 +14,11 @@
 
 }
 
+/* smooth behaviour */
+html {
+  scroll-behavior: smooth;
+}
+
 img {
   width: 100%;
   display: block;
@@ -24,6 +29,18 @@ body {
   font-family: 'Poppins', sans-serif;
 
 
+
+
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 li {
@@ -40,10 +57,49 @@ img {
   display: block;
 }
 
+.welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #ffffff;
+  animation: fade 1s ease-in forwards;
+}
+.welcome img{
+  width: 200px;
+
+}
+.welcome h1{
+  font-size: 2.5rem;
+  font-weight: 400;
+  animation: left 1s ease-in forwards;
+}
+
+@keyframes left {
+  0% {
+    opacity: 0;
+    
+  }
+
+  100% {
+    opacity: 1;
+   
+  }
+  
+}
+  
+
+
+
+
+
+
 .layout {
   width: 80%;
   margin: 0px auto;
   min-height: 100vh;
+  animation: fade 1s ease-in forwards;
 }
 
 Header {
@@ -84,10 +140,10 @@ Header {
   font-size: 2.4rem;
   font-family: "Poppins";
   font-weight: 450;
-  
+
   transition: all 0.4s ease-in-out;
   color: var(--primary-color);
-  animation: logo 2s ease-in-out  ;
+  animation: logo 2s ease-in-out;
 
 }
 
@@ -115,7 +171,7 @@ Header {
   width: 70px;
   /* height: 80px;/ */
   border-radius: 50%;
-  
+
 }
 
 .logo img:hover {
@@ -350,11 +406,11 @@ button:hover {
 }
 
 /* Job applied List */
-.Applicants_List{
+.Applicants_List {
   padding: 1.2em;
 
-  
-  
+
+
   width: 80%;
   margin: 2em auto;
   background-color: rgba(255, 255, 255, 1);
@@ -364,21 +420,24 @@ button:hover {
 }
 
 
-.Applicants_info{
+.Applicants_info {
   display: flex;
   gap: 2em;
-  
- 
+
+
 
 }
-.Applicants_info p{
+
+.Applicants_info p {
   display: flex;
   flex-direction: column;
 }
-.Applicants_info img{
- display: block;
- width: 10%;
+
+.Applicants_info img {
+  display: block;
+  width: 10%;
 }
+
 /* 
 .Container_jobapplied {
   font-family: poppins, sans-serif;

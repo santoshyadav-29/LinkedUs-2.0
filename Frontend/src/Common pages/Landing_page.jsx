@@ -6,12 +6,38 @@ import AnimatedPage from "../Animation";
 import Footer from "../Components/Footer";
 
 export default function Landing_page() {
+  const [bodyStyle, setBodyStyle] = React.useState("none");
+  const [SplashStyle, setSplashStyle] = React.useState("flex");
   const navigate = useNavigate();
 
+  setTimeout(() => {
+    setBodyStyle("block");
+    setSplashStyle("none");
+  }, 3000);
+
+ 
+
   return (
-    <AnimatedPage>
+    <>
+      <div className="welcome"
+      style={{
+        display: SplashStyle,
+
+      }}
+      
+      >
+        <img src="./Images/LinkedUs1.png" alt="" />
+        <h1>Welcome to LinkedUS</h1>
+      
+      </div>
+    <div
+      className="body"
+      style={{
+        display: bodyStyle,
+      }}
+    >
       <div className="layout">
-        <Navigation_Bar  />
+        <Navigation_Bar />
         <main>
           <div className="main-content">
             <div className="left-section">
@@ -59,6 +85,7 @@ export default function Landing_page() {
         </main>
       </div>
       <Footer />
-    </AnimatedPage>
+    </div>
+    </>
   );
 }
