@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../CSS files/AboutUs.css";
+import { motion } from "framer-motion";
 import Navigation_Bar from "../Components/Navigation_Bar";
 import Footer from "../Components/Footer";
 import WhatDo from "../Components/WhatDo";
@@ -24,14 +25,23 @@ export default function AboutUs() {
         {showModal3 && <MoreInfo closeModal3={closeModal3} />}
 
         <div className="AboutUsOverall">
-
-          <div className="Mid">
+          <motion.div
+            initial={{ x: -100 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 1 }}
+            className="Mid"
+          >
             <p>About Us</p>
             <img src="\Images\\AboutUs.png" alt="img" id="imagee" />
-          </div>
+          </motion.div>
 
           <div className="Bottom">
-            <div className="AboutUs1">
+            <motion.div
+              initial={{ x: -200 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1 }}
+              className="AboutUs1"
+            >
               <h1>What Do We Do ?</h1>
               <div className="paragraph">
                 <p>
@@ -48,8 +58,13 @@ export default function AboutUs() {
               >
                 View More
               </button>
-            </div>
-            <div className="AboutUs1">
+            </motion.div>
+            <motion.div
+              initial={{ x: -400 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1 }}
+              className="AboutUs1"
+            >
               <h1>How Can We Help ?</h1>
               <div className="paragraph">
                 <p>
@@ -67,8 +82,13 @@ export default function AboutUs() {
               >
                 ViewMore
               </button>
-            </div>
-            <div className="AboutUs1">
+            </motion.div>
+            <motion.div
+              initial={{ x: -600 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1 }}
+              className="AboutUs1"
+            >
               <h1>More information..</h1>
               <div className="paragraph">
                 <p>
@@ -86,7 +106,7 @@ export default function AboutUs() {
               >
                 ViewMore
               </button>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
