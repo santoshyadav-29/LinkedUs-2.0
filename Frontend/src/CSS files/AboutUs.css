@@ -24,7 +24,7 @@
 
 .Mid p {
     margin-left: 3rem;
-    color: rgba(89, 86, 233, 1);
+    color: rgb(249, 249, 252);
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     font-size: 4rem;
@@ -33,9 +33,9 @@
 
 #imagee {
     /* height: 95%; */
-    width: 60%;
-    
-    margin-left: 5rem;
+    width: 45%;
+    overflow: hidden;
+    margin-left: 14rem;
 }
 #imageee {
     /* height: 95%; */

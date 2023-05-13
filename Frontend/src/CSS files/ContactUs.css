@@ -17,7 +17,8 @@
 
 
 .Mid {
-    background-color: rgba(217, 217, 217, 1);
+    /* background-color: rgba(217, 217, 217, 1); */
+    background-color: rgba(106, 0, 255, 0.947);
     width: 100%;
     height: 40%;
     display: flex;
@@ -27,7 +28,7 @@
 
 .Mid p {
     margin-left: 3rem;
-    color: rgba(89, 86, 233, 1);
+    color: rgb(230, 230, 234);
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     font-size: 4rem;
@@ -43,7 +44,7 @@
 
 #Contact{
     margin-left: 7rem;
-    color: rgba(89, 86, 233, 1);
+    color: rgb(242, 242, 245);
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     font-size: 4rem;
@@ -59,7 +60,7 @@
 }
 
 .AboutUs1 {
-    background-color: rgba(217, 217, 217, 1);
+    background-color: rgb(227, 226, 226);
     width: 30%;
     height: 80%;
     border-radius: 10%;
