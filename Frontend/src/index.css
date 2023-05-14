@@ -249,7 +249,7 @@ main {
 }
 
 .userButtons button:hover {
-  background-color: rgb(226, 83, 31);
+  background-color: #5956E9;
   color: white;
   transition: all 0.4s ease-in-out;
 
