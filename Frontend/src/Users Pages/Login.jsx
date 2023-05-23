@@ -5,8 +5,7 @@ import AnimatedPage from "../Animation";
 import { Link, useNavigate } from "react-router-dom";
 import "../CSS files/Login.css";
 import axios from "axios";
-import Footer from "../Components/Footer";
-import { Navigate } from "react-router-dom";
+
 
 // Stores the user data
 var User = {
@@ -25,7 +24,6 @@ const submit = (e) => {
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
 
   //  Redirects to the homepage if the user is admin
@@ -39,17 +37,13 @@ export default function Login() {
         password,
       });
       console.log("login");
-
-      const { id, token, roles, user } = response.data;
-      console.log(email);
-      localStorage.setItem("id", id || "");
-      localStorage.setItem("userkey", token || "");
-      localStorage.setItem("token", token || "");
-      localStorage.setItem("roles", roles || "");
-      localStorage.setItem("user", JSON.stringify(user || {}));
-      localStorage.setItem("name", user?.name || "");
-      localStorage.setItem("email", email || "");
-
+      // localStorage.setItem("userkey", response.data.token);
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+      localStorage.setItem("roles", response.data.roles);
+      localStorage.setItem("id", response.data._id);
+      localStorage.setItem("name", response.data.name);
+      localStorage.setItem("email", response.data.email);
       navigate("/Homepage");
     } catch (e) {
       alert("failed" + e);
@@ -68,13 +62,15 @@ export default function Login() {
             <div className="left-section">
               <h1>Sign In</h1>
               <form method="POST" action="/login" onSubmit={submit}>
-                <input
-                  type="email"
+                <input type="text"
+                 
                   name="email"
-                  placeholder="Username"
+                  placeholder="Email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+                  onChange={(e) => setEmail(e.target.value)} />
+                
+                
+               
 
                 <input
                   type="password"
