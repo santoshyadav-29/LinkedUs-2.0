@@ -39,10 +39,6 @@ export default function Navigation_Bar(props) {
               <li>
                 <Link to="/Aboutus">About Us</Link>{" "}
               </li>
-              <li>
-                <Link to="/Profile">Profile </Link>{" "}
-              </li>
-
             </ul>
             <svg
               width="42"

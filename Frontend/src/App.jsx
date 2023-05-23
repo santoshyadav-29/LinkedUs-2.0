@@ -9,11 +9,10 @@ import Eroor from "./Users Pages/Eroor";
 import Portal from "./Admin Pages/Portal";
 import JobAppliedList from "./Admin Pages/jobAppliedList";
 import Jobpage from "./Users Pages/jobpage";
-import ApplyJobs from "./Users Pages/ApplyJobs";
+import ApplyJobs from "./Users Pages/applyJobs";
 import JobPosted from "./Admin Pages/JobPosted";
 import AboutUs from "./Common pages/AboutUs";
 import ContactUs from "./Common pages/ContactUS";
-import Profile from "./Common pages/Profile";
 
 export default function App() {
   return (
@@ -35,7 +34,6 @@ export default function App() {
           <Route path="/jobPosted" element={<JobPosted />} />
           <Route path="/AboutUs" element={<AboutUs />} />
           <Route path="/ContactUs" element={<ContactUs />} />
-          <Route path="/Profile" element={<Profile />} />
 
           {/* <Route path="/Search" element={<Search />} /> */}
         </Routes>
