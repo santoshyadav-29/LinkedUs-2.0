@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 
+let token ="";
 //schema
 
 let SECRETE_KEY = "asdfghjklqwertyuiopzxcvbnmqwerrttyuioasdfghjjkl";
@@ -18,11 +19,11 @@ const userSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: true,
+    required: false,
   },
   password: {
     type: String,
-    required: true,
+    required: false,
   },
   repassword: {
     type: String,
@@ -31,7 +32,19 @@ const userSchema = new mongoose.Schema({
 
   roles: {
     type: String,
+    required:false,
   },
+     image: {
+      data: {
+        type: String,
+        required: true
+      },
+      contentType: {
+        type: String,
+        required: true
+      }
+    },
+    
   //array of object
   tokens: [
     {
@@ -44,12 +57,13 @@ const userSchema = new mongoose.Schema({
 });
 //we are hashing the password
 userSchema.pre("save", async function (next) {
-  if (this.isModified("password")) {
+  if (this.isModified("password") && this.password && this.repassword) {
     this.password = await bcrypt.hash(this.password, 12);
     this.repassword = await bcrypt.hash(this.repassword, 12);
   }
   next();
 });
+
 //workking wid instances then we use methods
 //we are genetrating a token
 //normal arrow as it doesnt work with this
@@ -59,17 +73,54 @@ userSchema.methods.generateAuthToken = async function () {
     //payload-unique,secretkey
     //here this._id is referreing to the email of login
     //object id converting into string 
-    const token = jwt.sign({ _id: this._id.toString() }, SECRETE_KEY);
+    token = jwt.sign({ _id: this._id.toString() }, SECRETE_KEY);
     //to add the token in database from token
     this.tokens = this.tokens.concat({ token: token });
     await this.save();
     console.log(token);
+   
     return token;
   } catch (err) {
    
+    
    console.log("the error part"+err);
   }
 };
+
+  
+userSchema.methods.userid= async function()
+{
+  try{
+    const decoded = jwt.verify(token, SECRETE_KEY);
+    const userId = decoded._id;
+    console.log(userId);
+    User.findById(userId, "name email")
+  .then(user => 
+    {
+    if (!user)
+    {
+      console.log("User not found");
+    
+    }
+
+    const { name, email } = user;
+    console.log("Name:", name);
+    console.log("Email:", email);
+  })
+  .catch(err => {
+    console.error(err);
+  })
+ 
+
+        return  userId ;
+  }
+  catch(err){
+    console.log(err);
+
+  }
+  
+  }
+
 
 const User = mongoose.model("User", userSchema);
 

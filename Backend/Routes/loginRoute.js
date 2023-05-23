@@ -14,12 +14,13 @@ import Login from "../models/userSchema.js";
 
 router.post("/", async (req, res) => {
   try {
-    console.log("not")
+    
     const { email, password } = req.body;
+
+    // Check if the user exists in the database
     if (!email || !password) {
       console.log("password and email must be filled");
     }
-    console.log("not")
     const userLogin = await Login.findOne({ email: email });
     if (!userLogin) {
       console.log("Please fill correct information");
@@ -30,8 +31,16 @@ router.post("/", async (req, res) => {
       }
       else {
         const token = await userLogin.generateAuthToken();
-      res.status(200).json({message:"login"}); 
-      console.log("not")}
+           // Construct the user object to send in the response
+    const userData = {
+      _id: userLogin._id,
+      name: userLogin.name,
+      email: userLogin.email,
+      image: userLogin.image,
+    };
+        // Send the token and user data in the response
+    res.status(200).json({ token, userLogin: userData });
+      }
     }
   } catch (err) {
     console.log(err);

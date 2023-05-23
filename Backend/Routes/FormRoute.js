@@ -13,6 +13,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+
 // post request to submit the application
 router.post("/", async (req, res) => {
   const name = req.body.name;
