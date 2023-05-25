@@ -3,6 +3,7 @@ import Navigation_Bar from "../Components/Navigation_Bar";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Jobs from "../Components/jobs";
+import Footer from "../Components/Footer";
 
 export default function Jobpage() {
   const [data, setData] = useState([]);
@@ -23,7 +24,8 @@ export default function Jobpage() {
   
 
   return (
-    <div>
+    <>
+    <div className="layout">
       <Navigation_Bar />
       <hr />
       <div className="Search-section">
@@ -78,5 +80,7 @@ export default function Jobpage() {
         }
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

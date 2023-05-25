@@ -28,9 +28,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-
-  roles: {
+  image: {
     type: String,
+    required: false,
   },
   //array of object
   tokens: [

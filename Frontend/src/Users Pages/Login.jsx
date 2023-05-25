@@ -5,7 +5,7 @@ import AnimatedPage from "../Animation";
 import { Link, useNavigate } from "react-router-dom";
 import "../CSS files/Login.css";
 import axios from "axios";
-
+import Footer from "../Components/Footer";
 
 // Stores the user data
 var User = {
@@ -36,21 +36,21 @@ export default function Login() {
         email,
         password,
       });
-      console.log("login");
+
       // localStorage.setItem("userkey", response.data.token);
       localStorage.setItem("token", response.data.token);
+
+      console.log(response.data);
       localStorage.setItem("user", JSON.stringify(response.data.user));
-      localStorage.setItem("roles", response.data.roles);
-      localStorage.setItem("id", response.data._id);
-      localStorage.setItem("name", response.data.name);
-      localStorage.setItem("email", response.data.email);
+      localStorage.setItem("userkey", JSON.stringify(response.data.token));
+
       navigate("/Homepage");
     } catch (e) {
       alert("failed" + e);
     }
   };
   return (
-    <AnimatedPage>
+    <>
       <div className="layout">
         <Navigation_Bar />
         <main>
@@ -62,15 +62,13 @@ export default function Login() {
             <div className="left-section">
               <h1>Sign In</h1>
               <form method="POST" action="/login" onSubmit={submit}>
-                <input type="text"
-                 
+                <input
+                  type="text"
                   name="email"
                   placeholder="Email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)} />
-                
-                
-               
+                  onChange={(e) => setEmail(e.target.value)}
+                />
 
                 <input
                   type="password"
@@ -109,6 +107,7 @@ export default function Login() {
           </div>
         </main>
       </div>
-    </AnimatedPage>
+      <Footer />
+    </>
   );
 }
